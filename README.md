@@ -12,6 +12,8 @@ and with Gulp you can setup watchers for recompiling on the fly and restarting t
 
 __build.js__
 ```
+var gulp = require('gulp');
+var DNX = require('gulp-aspnet5');
 gulp.task('build:csharp', function(cb) {
   DNX.build({ cwd: './' }, cb);
 });
@@ -36,6 +38,9 @@ gulp.task('watch', ['build'], function() {
 
 __server.js__
 ```
+var gulp = require('gulp');
+var DNX = require('gulp-aspnet5');
+
 var server;
 gulp.task('start:api', function(cb) {
   if(!server) server = new DNX({ cwd: paths.api  });
