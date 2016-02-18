@@ -56,7 +56,8 @@ gulp.task('start:api', function(cb) {
   cwd: './',
   
   // how noisy?
-  logLevel: logLevels.DEBUG,
+  // options: 'debug', 'info', 'error', 'silent'
+  logLevel: 'debug',
   
   // notify on errors
   notify: true
@@ -66,7 +67,7 @@ gulp.task('start:api', function(cb) {
 
 ## Credits
 
-`angular-data-table` is a [Swimlane](http://swimlane.com) open-source project; we believe in giving back to the open-source community by sharing some of the projects we build for our application. Swimlane is an automated cyber security operations and incident response platform that enables cyber security teams to leverage threat intelligence, speed up incident response and automate security operations.
+`gulp-aspnet5` is a [Swimlane](http://swimlane.com) open-source project; we believe in giving back to the open-source community by sharing some of the projects we build for our application. Swimlane is an automated cyber security operations and incident response platform that enables cyber security teams to leverage threat intelligence, speed up incident response and automate security operations.
 
 ## License
 MIT
