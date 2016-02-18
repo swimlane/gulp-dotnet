@@ -52,7 +52,7 @@ class DNX {
     return new DNX(opts).build(cb);
   }
   
-  static update(opts){
+  static update(opts, cb){
     opts = assignDefaults(opts);
     return new DNX(opts).update(cb);
   }
