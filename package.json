@@ -1,0 +1,31 @@
+{
+  "name": "gulp-aspnet5",
+  "version": "1.0.0",
+  "description": "Gulp utility to build/watch/start ASPNET5 DNX",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Swimlane/gulp-aspnet5.git"
+  },
+  "keywords": [
+    "gulp",
+    "dnx",
+    "aspnet5",
+    "dnu",
+    "dotnetcore",
+    "dotnet"
+  ],
+  "author": "Austin McDaniel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Swimlane/gulp-aspnet5/issues"
+  },
+  "homepage": "https://github.com/Swimlane/gulp-aspnet5#readme",
+  "dependencies": {
+    "gulp-util": "^3.0.7",
+    "node-notifier": "^4.5.0"
+  }
+}
