@@ -142,7 +142,7 @@ class DNX {
     if (this.child) {
       this.started = false;
       this.starting = false;
-      DNX.instance.child.kill();
+      this.child.kill();
     }
   }
   
