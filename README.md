@@ -1,6 +1,6 @@
 # ASPNET5 Gulp Plugin
 
-GulpJS plugin for ASPNET5 / DNX / DNU / Krestel that is cross-platform. This plugin does the following:
+GulpJS plugin for ASPNET5 / DNX / DNU / Kestrel that is cross-platform. This plugin does the following:
 
 - Build
 - Update
