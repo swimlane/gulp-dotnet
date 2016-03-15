@@ -40,21 +40,21 @@ function assignDefaults(opts){
   return opts;
 }
 
-class DNX {
+class Dotnet {
   
   static start(task, opts, cb){
     opts = assignDefaults(opts);
-    return new DNX(opts).start(task, cb);
+    return new Dotnet(opts).start(task, cb);
   }
   
   static build(opts, cb){
     opts = assignDefaults(opts);
-    return new DNX(opts).build(cb);
+    return new Dotnet(opts).build(cb);
   }
   
   static update(opts, cb){
     opts = assignDefaults(opts);
-    return new DNX(opts).update(cb);
+    return new Dotnet(opts).update(cb);
   }
 
   constructor(opts){
@@ -66,7 +66,7 @@ class DNX {
       let color = level === logLevels.ERROR ?
         gutil.colors.red : gutil.colors.blue;
         
-      msg = `${ color('DNX') }: ${msg}`;
+      msg = `${ color('DOTNET') }: ${msg}`;
       
       if(data)  { 
         gutil.log(msg, data);
@@ -80,7 +80,7 @@ class DNX {
     if(this.options.notify){
       notifier.notify({
         sound: true,
-        message: 'DNX Notification',
+        message: 'DOTNET Notification',
         title: msg
       });
     }
@@ -176,4 +176,4 @@ class DNX {
   
 }
 
-module.exports = DNX;
+module.exports = Dotnet;

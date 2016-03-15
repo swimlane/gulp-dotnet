@@ -1,6 +1,6 @@
-# ASPNET5 Gulp Plugin
+# DOTNET Core Gulp Plugin
 
-GulpJS plugin for ASPNET5 / DNX / DNU / Kestrel that is cross-platform. This plugin does the following:
+GulpJS plugin for DOTNET CORE ( ASPNET5 / DNX / DNU ) Kestrel that is cross-platform. This plugin does the following:
 
 - Build
 - Update
@@ -13,9 +13,9 @@ and with Gulp you can setup watchers for recompiling on the fly and restarting t
 __build.js__
 ```
 var gulp = require('gulp');
-var DNX = require('gulp-aspnet5');
+var Dotnet = require('gulp-dotnet');
 gulp.task('build:csharp', function(cb) {
-  DNX.build({ cwd: './' }, cb);
+  Dotnet.build({ cwd: './' }, cb);
 });
 ```
 
@@ -39,11 +39,11 @@ gulp.task('watch', ['build'], function() {
 __server.js__
 ```
 var gulp = require('gulp');
-var DNX = require('gulp-aspnet5');
+var Dotnet = require('gulp-dotnet');
 
 var server;
 gulp.task('start:api', function(cb) {
-  if(!server) server = new DNX({ cwd: paths.api  });
+  if(!server) server = new Dotnet({ cwd: paths.api  });
   server.start('weblistener', cb);
 });
 ```
@@ -67,7 +67,7 @@ gulp.task('start:api', function(cb) {
 
 ## Credits
 
-`gulp-aspnet5` is a [Swimlane](http://swimlane.com) open-source project; we believe in giving back to the open-source community by sharing some of the projects we build for our application. Swimlane is an automated cyber security operations and incident response platform that enables cyber security teams to leverage threat intelligence, speed up incident response and automate security operations.
+`gulp-dotnet` is a [Swimlane](http://swimlane.com) open-source project; we believe in giving back to the open-source community by sharing some of the projects we build for our application. Swimlane is an automated cyber security operations and incident response platform that enables cyber security teams to leverage threat intelligence, speed up incident response and automate security operations.
 
 ## License
 MIT
