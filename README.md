@@ -1,4 +1,5 @@
-# DOTNET Core Gulp Plugin
+# DOTNET Core Gulp Plugin [![Dependency Status](https://david-dm.org/Swimlane/gulp-dotnet.svg)](https://david-dm.org/Swimlane/gulp-dotnet)
+[![devDependency Status](https://david-dm.org/Swimlane/gulp-dotnet/dev-status.svg)](https://david-dm.org/Swimlane/gulp-dotnet#info=devDependencies)
 
 GulpJS plugin for DOTNET CORE ( ASPNET5 / DNX / DNU ) Kestrel that is cross-platform. This plugin does the following:
 
