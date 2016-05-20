@@ -104,7 +104,7 @@ class Dotnet {
     }
       
     this.starting = true;
-    this.child = proc.spawn('dnx', [task], {
+    this.child = proc.spawn('dotnet', [task], {
       cwd: this.options.cwd
     });
     
@@ -147,7 +147,7 @@ class Dotnet {
   }
   
   build(done){
-    proc.exec('dnu build', {
+    proc.exec('dotnet build', {
       cwd: this.options.cwd 
     }, (err, stdout, stderr) => {
       if (err) {
@@ -161,7 +161,7 @@ class Dotnet {
   }
   
   update(done){
-    proc.exec('dnu restore', {
+    proc.exec('dotnet restore', {
       cwd: this.options.cwd 
     }, (err, stdout, stderr) => {
       if (err) {
