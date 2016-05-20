@@ -1,10 +1,10 @@
 # DOTNET Core Gulp Plugin [![Dependency Status](https://david-dm.org/Swimlane/gulp-dotnet.svg)](https://david-dm.org/Swimlane/gulp-dotnet) [![devDependency Status](https://david-dm.org/Swimlane/gulp-dotnet/dev-status.svg)](https://david-dm.org/Swimlane/gulp-dotnet#info=devDependencies)
 
-GulpJS plugin for DOTNET CORE ( ASPNET5 / DNX / DNU ) Kestrel that is cross-platform. This plugin does the following:
+GulpJS plugin for DOTNET CORE CLI ( ASP.NET Core ) that is cross-platform. This plugin does the following:
 
 - Build
 - Update
-- Start DNX
+- Start
 
 and with Gulp you can setup watchers for recompiling on the fly and restarting the web server. Similar to [gulp-dnx](https://github.com/tugberkugurlu/gulp-dnx) but this one has more logging opts, notifications and is cross platform.
 
