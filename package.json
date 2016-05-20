@@ -1,6 +1,6 @@
 {
   "name": "gulp-dotnet",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Gulp utility to build/watch/start DOTNET Core",
   "main": "index.js",
   "scripts": {
