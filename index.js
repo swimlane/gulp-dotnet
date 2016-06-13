@@ -94,7 +94,7 @@ class Dotnet {
     
     if (this.child) {
       this.log(logLevels.INFO, 'Restarting');
-      this.child.kill();
+      this.kill();
     }
     
     if(this.starting) {
@@ -105,7 +105,8 @@ class Dotnet {
       
     this.starting = true;
     this.child = proc.spawn('dotnet', [task], {
-      cwd: this.options.cwd
+      cwd: this.options.cwd,
+      detached: true
     });
     
     this.child.stdout.on('data', (data) => {
@@ -142,7 +143,7 @@ class Dotnet {
     if (this.child) {
       this.started = false;
       this.starting = false;
-      this.child.kill();
+      process.kill(-this.child.pid);
     }
   }
   
