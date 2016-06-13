@@ -89,7 +89,7 @@ class Dotnet {
   start(task, done){
     // only do first time
     if(!this.child){
-      process.on('exit', this.kill);
+      process.on('exit', () => this.kill());
     }
     
     if (this.child) {
