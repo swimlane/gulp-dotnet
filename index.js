@@ -57,6 +57,11 @@ class Dotnet {
     return new Dotnet(opts).update(cb);
   }
 
+  static test(opts, cb) {
+    opts = assignDefaults(opts);
+    return new Dotnet(opts).test(cb);
+  }
+
   constructor(opts){
     this.options = assignDefaults(opts);
   }
@@ -89,12 +94,12 @@ class Dotnet {
   start(task, done){
     // only do first time
     if(!this.child){
-      process.on('exit', () => this.kill());
+      process.on('exit', this.kill);
     }
     
     if (this.child) {
       this.log(logLevels.INFO, 'Restarting');
-      this.kill();
+      this.child.kill();
     }
     
     if(this.starting) {
@@ -105,8 +110,7 @@ class Dotnet {
       
     this.starting = true;
     this.child = proc.spawn('dotnet', [task], {
-      cwd: this.options.cwd,
-      detached: true
+      cwd: this.options.cwd
     });
     
     this.child.stdout.on('data', (data) => {
@@ -143,7 +147,7 @@ class Dotnet {
     if (this.child) {
       this.started = false;
       this.starting = false;
-      process.kill(-this.child.pid);
+      this.child.kill();
     }
   }
   
@@ -154,10 +158,26 @@ class Dotnet {
       if (err) {
         this.log(logLevels.ERROR, `Build Failed`, err);
         this.notify('Build Failed');
+        done && done(err);
       } else {
         this.log(logLevels.DEBUG, stdout);
+        done && done();
       }
-      done && done();
+    });
+  }
+
+  test(done){
+    proc.exec('dotnet test', {
+      cwd: this.options.cwd 
+    }, (err, stdout, stderr) => {
+      if (err) {
+        this.log(logLevels.ERROR, `Test Error`, err);
+        this.notify('Test Failed');
+        done && done(err);
+      } else {
+        this.log(logLevels.DEBUG, stdout);
+        done && done();
+      }
     });
   }
   
@@ -168,13 +188,13 @@ class Dotnet {
       if (err) {
         this.log(logLevels.ERROR, `Restore Error`, err);
         this.notify('Restore Failed');
+        done && done(err);
       } else {
         this.log(logLevels.DEBUG, stdout);
+        done && done();
       }
-      done && done();
     });
   }
-  
 }
 
 module.exports = Dotnet;
