@@ -154,10 +154,26 @@ class Dotnet {
       if (err) {
         this.log(logLevels.ERROR, `Build Failed`, err);
         this.notify('Build Failed');
+        done && done(err);
       } else {
         this.log(logLevels.DEBUG, stdout);
+        done && done();
       }
-      done && done();
+    });
+  }
+
+  test(done){
+    proc.exec('dotnet test', {
+      cwd: this.options.cwd 
+    }, (err, stdout, stderr) => {
+      if (err) {
+        this.log(logLevels.ERROR, `Test Error`, err);
+        this.notify('Test Failed');
+        done && done(err);
+      } else {
+        this.log(logLevels.DEBUG, stdout);
+        done && done();
+      }
     });
   }
   
@@ -168,10 +184,11 @@ class Dotnet {
       if (err) {
         this.log(logLevels.ERROR, `Restore Error`, err);
         this.notify('Restore Failed');
+        done && done(err);
       } else {
         this.log(logLevels.DEBUG, stdout);
+        done && done();
       }
-      done && done();
     });
   }
   
